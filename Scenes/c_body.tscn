@@ -9,6 +9,7 @@
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
 
 [node name="CBody" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_1pvmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

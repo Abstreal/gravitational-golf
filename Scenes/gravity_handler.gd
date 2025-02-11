@@ -26,11 +26,11 @@ func get_total_accel(cbody_i: int) -> Vector2:
 		total += get_accel(cbodies[cbody_i].global_position, cbodies[j].global_position, cbodies[j].mass)
 	return total
 
-func apply_accels() -> void:
+func apply_accels(delta: float) -> void:
 	for i in range(cbodies.size()):
 		var accel = get_total_accel(i)
-		cbodies[i].velocity += accel
+		cbodies[i].velocity += accel * delta
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	apply_accels()
+	apply_accels(delta)

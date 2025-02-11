@@ -9,11 +9,10 @@
 
 [node name="CBody" parent="GravityHandler" instance=ExtResource("2_d4n8n")]
 position = Vector2(400, 200)
-mass = 100.0
-initial_vel = Vector2(0, 25)
+initial_vel = Vector2(0, 31)
 
 [node name="CBody2" parent="GravityHandler" instance=ExtResource("2_d4n8n")]
 position = Vector2(200, 200)
-mass = 200.0
+mass = 20000.0
 
 [editable path="GravityHandler"]
