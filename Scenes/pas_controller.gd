@@ -8,7 +8,7 @@ signal pressed
 func _on_pressed():
 	var new_cbd = c_body_scene.instantiate()
 	new_cbd.global_position = get_global_mouse_position()
-	new_cbd.mass = 2000
+	#new_cbd.mass = 2000
 	gravity_handler.add_child(new_cbd)
 	gravity_handler.update_cbodies()
 

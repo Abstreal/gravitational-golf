@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var c_body_scene = preload("res://Scenes/c_body.tscn")
 @export var G: float = 10
 
 var cbodies: Array = Array()
@@ -32,6 +33,19 @@ func apply_accels(delta: float) -> void:
 	for i in range(cbodies.size()):
 		var accel = get_total_accel(i)
 		cbodies[i].velocity += accel * delta
+
+func handle_collision(x1, x2):
+	var new_cbd = c_body_scene.instantiate()
+	new_cbd.global_position = (x1.global_position * x1.mass + x2.global_position * x2.mass)/(x1.mass + x2.mass)
+	new_cbd.mass = x1.mass + x2.mass
+	remove_child(x1)
+	x1.queue_free()
+	update_cbodies()
+	remove_child(x2)
+	x2.queue_free()
+	update_cbodies()
+	add_child(new_cbd)
+	update_cbodies()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

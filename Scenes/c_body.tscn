@@ -16,6 +16,7 @@ script = ExtResource("1_1pvmd")
 shape = SubResource("CircleShape2D_1mqeo")
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 gradient = SubResource("Gradient_gic2v")
 script = ExtResource("2_2rgkl")
 length = 1000
