@@ -4,9 +4,11 @@ extends Node2D
 
 var cbodies: Array = Array()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func update_cbodies() -> void:
 	cbodies = get_children()
+
+func _ready() -> void:
+	update_cbodies()
 
 func get_accel(pos: Vector2, attr_pos: Vector2, attr_mass: float) -> Vector2:
 	if pos == attr_pos:
