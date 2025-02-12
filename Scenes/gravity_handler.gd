@@ -38,6 +38,7 @@ func handle_collision(x1, x2):
 	var new_cbd = c_body_scene.instantiate()
 	new_cbd.global_position = (x1.global_position * x1.mass + x2.global_position * x2.mass)/(x1.mass + x2.mass)
 	new_cbd.mass = x1.mass + x2.mass
+	new_cbd.velocity = (x1.velocity * x1.mass + x2.velocity * x2.mass)/(x1.mass + x2.mass)
 	remove_child(x1)
 	x1.queue_free()
 	update_cbodies()
